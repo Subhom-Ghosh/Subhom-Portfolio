@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subhom Ghosh Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ─── NAV ────────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-logo">SG<span style="color:var(--cyan)">.</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────────── -->
+  <section id="hero">
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Available for Internships &amp; Collaborations
+          </div>
+          <h1 class="hero-name">
+            <span class="first">Subhom</span>
+            <span class="last">Ghosh</span>
+          </h1>
+          <p class="hero-title">AI &amp; Machine Learning Enthusiast</p>
+          <div class="typed-wrap">
+            &gt; <span id="typed-text"></span><span class="cursor"></span>
+          </div>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
+            <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+            <a href="#" class="btn btn-ghost" download><i class="fas fa-download"></i> Resume</a>
+          </div>
+        </div>
+
+        <div class="hero-avatar">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <div class="avatar-placeholder">
+                <img src="images\1755184620330.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="stat-chip chip-1">
+            <span class="chip-icon">🤖</span>
+            <div>
+              <div class="chip-text">ML Projects</div>
+              <div class="chip-val">5+</div>
+            </div>
+          </div>
+          <div class="stat-chip chip-2">
+            <span class="chip-icon">⭐</span>
+            <div>
+              <div class="chip-text">GitHub Stars</div>
+              <div class="chip-val">50+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">Who I am</div>
+      <div class="section-title">About <span>Me</span></div>
+      <div class="divider">
+        <div class="divider-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm <strong>Subhom Ghosh</strong>, a passionate B.Tech Computer Science &amp; Engineering student from
+            <strong>Abacus Institute of Engineering and Management, West Bengal, India</strong> — driven by a relentless
+            curiosity for intelligent systems and cutting-edge technology.</p>
+          <p>My core passion lies in <strong>Artificial Intelligence and Machine Learning</strong> — I love designing
+            systems that learn, adapt, and solve real-world problems. From building mood-detection AI to exploring NLP
+            pipelines, I thrive where code meets creativity.</p>
+
+          <div class="about-highlights">
+            <div class="highlight-card reveal reveal-delay-1">
+              <div class="hc-icon">🎓</div>
+              <div class="hc-label">Degree</div>
+              <div class="hc-val">Pursuing B.Tech CSE (3rd Year)</div>
+            </div>
+            <div class="highlight-card reveal reveal-delay-2">
+              <div class="hc-icon">📍</div>
+              <div class="hc-label">Location</div>
+              <div class="hc-val">Abacus Institute of Engineering and Management, West Bengal, India</div>
+            </div>
+            <div class="highlight-card reveal reveal-delay-3">
+              <div class="hc-icon">🧠</div>
+              <div class="hc-label">Focus</div>
+              <div class="hc-val">AI / ML / NLP</div>
+            </div>
+            <div class="highlight-card reveal reveal-delay-4">
+              <div class="hc-icon">🚀</div>
+              <div class="hc-label">Status</div>
+              <div class="hc-val">Open to Roles</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-block reveal reveal-delay-2">
+          <code><span class="code-keyword">class</span> <span class="code-fn">Subhom</span>:</code>
+          <code>  name   = <span class="code-str">"Subhom Ghosh"</span></code>
+          <code>  degree = <span class="code-str">"B.Tech CSE"</span></code>
+          <code>  origin = <span class="code-str">"West Bengal, India 🇮🇳"</span></code>
+          <code>&nbsp;</code>
+          <code>  passions = [</code>
+          <code>    <span class="code-str">"Artificial Intelligence"</span>,</code>
+          <code>    <span class="code-str">"Machine Learning"</span>,</code>
+          <code>    <span class="code-str">"Natural Language Processing"</span>,</code>
+          <code>    <span class="code-str">"Full-Stack Development"</span>,</code>
+          <code>  ]</code>
+
+
+          <code>&nbsp;</code>
+          <code>  <span class="code-keyword">def</span> <span class="code-fn">greet</span>(self):</code>
+          <code>    <span class="code-keyword">return</span> <span class="code-str">"Let's build something great! 🤝"</span></code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ────────────────────────────────────────────────── -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Technical <span class="gradient-text">Skills</span></h2>
+      <div class="divider reveal"></div>
+      <p class="section-subtitle reveal">Technologies and tools I work with</p>
+      <div class="skills-grid">
+        <!-- Programming -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon purple"><i class="fas fa-code"></i></div>
+            <span class="skill-card-title">Programming Languages</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name"> &nbsp;<img
+                  src="https://images.icon-icons.com/2699/PNG/512/python_logo_icon_168886.png" alt="Python"
+                  height="20px" width="20px"></span><span class="pct">90%</span></div>
+            <div class="bar-bg" style="width:90% ; background-color:aqua">
+              <div class="bar-fill" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name"><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1920px-ISO_C%2B%2B_Logo.svg.png"
+                  height="20px" width="20px" alt="C++"></span><span class="pct">78%</span></div>
+            <div class="bar-bg" style="width:78% ; background-color:aqua">
+              <div class="bar-fill" data-width="78"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name"><img
+                  src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png"
+                  height="20px" width="20px" alt="JavaScript"></span><span class="pct">70%</span></div>
+            <div class="bar-bg" style="width:70% ; background-color:aqua">
+              <div class="bar-fill" data-width="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name"><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" height="20px"
+                  width="40px" alt="SQL"></span><span class="pct">72%</span></div>
+            <div class="bar-bg" style="width:72% ; background-color:aqua">
+              <div class="bar-fill" data-width="72"></div>
+            </div>
+          </div>
+        </div>
+        <!-- ML -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon violet"><i class="fa-solid fa-brain-circuit"></i></div>
+            <span class="skill-card-title">Machine Learning</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">Classification</span><span class="pct">88%</span></div>
+            <div class="bar-bg" style="width:88% ; background-color:aqua">
+              <div class="bar-fill" data-width="88"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">Clustering</span><span class="pct">82%</span></div>
+            <div class="bar-bg" style="width:82% ; background-color:aqua">
+              <div class="bar-fill" data-width="82"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">NLP</span><span class="pct">80%</span></div>
+            <div class="bar-bg" style="width:80% ; background-color:aqua">
+              <div class="bar-fill" data-width="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">Deep Learning</span><span class="pct">68%</span></div>
+            <div class="bar-bg" style="width:68% ; background-color:aqua">
+              <div class="bar-fill" data-width="68"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Libraries -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon violet"><i class="fas fa-cubes"></i></div>
+            <span class="skill-card-title">Libraries & Frameworks</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">Scikit-learn</span><span class="pct">87%</span></div>
+            <div class="bar-bg" style="width:87% ; background-color:aqua">
+              <div class="bar-fill" data-width="87"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">Pandas & NumPy</span><span class="pct">92%</span></div>
+            <div class="bar-bg" style="width:92% ; background-color:aqua ">
+              <div class="bar-fill" data-width="92"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">FastAPI</span><span class="pct">75%</span></div>
+            <div class="bar-bg" style="width:75% ; background-color:aqua">
+              <div class="bar-fill" data-width="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="name">TensorFlow</span><span class="pct">50%</span></div>
+            <div class="bar-bg" style="width:50% ; background-color:aqua">
+              <div class="bar-fill" data-width="50"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Tools -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon green"><i class="fas fa-tools"></i></div>
+            <span class="skill-card-title">Tools & Platforms</span>
+          </div>
+          <div class="tool-tags">
+            <span class="tool-tag"> <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/3840px-Git_icon.svg.png"
+                height="20px" alt="Git"></i> </span>
+            <span class="tool-tag"> <img src="https://i.pinimg.com/736x/64/88/0b/64880b9b0fe5b53bbe3f7280d262b33f.jpg"
+                height="20px" alt="GitHub"></span>
+            <span class="tool-tag"> <img src="https://apps.memair.com/img/app_logos/jupyter.jpg" height="20px"
+                alt="Jupyter"></span>
+            <span class="tool-tag"> <img
+                src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" height="20px"
+                alt="VS Code"></span>
+            <span class="tool-tag"> <img src="https://keycheck.dev/app-icons/android-studio.png" height="20px"
+                alt="Android Studio"></span>
+            <span class="tool-tag"> <img
+                src="https://th.bing.com/th/id/OIP.z2NK0qb7UTAYD7LpqWvg1QHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+                height="20px" alt="Postman"></span>
+            <span class="tool-tag"> <img
+                src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/97_Docker_logo_logos-1024.png"
+                height="20px" alt="Docker"></span>
+            <span class="tool-tag"> <img
+                src="https://images.seeklogo.com/logo-png/61/1/google-colab-logo-png_seeklogo-611585.png" height="20px"
+                alt="Google Colab"></span>
+            <span class="tool-tag"> <img
+                src="https://thumbs.dreamstime.com/b/figma-mobile-app-icon-transparent-background-vector-illustration-collaborative-web-application-interface-design-361202754.jpg?w=576"
+                height="20px" alt="Figma"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────────── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">What I've built</div>
+      <div class="section-title">Featured <span>Projects</span></div>
+      <div class="divider">
+        <div class="divider-line"></div>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Mood Melody -->
+        <div class="project-card reveal">
+          <div class="project-featured-badge"><i class="fas fa-star"></i> Featured</div>
+          <div class="project-icon">🎵</div>
+          <div class="project-title">Mood Melody</div>
+          <div class="project-desc">An AI-powered mood detection system that analyzes facial expressions and
+            physiological cues to recommend personalized music playlists in real time — bridging emotion and music
+            through ML.</div>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">FastAPI</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="project-link"><i class="fas fa-arrow-up-right-from-square"></i> Demo</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─────────────────────────────────────────────── -->
+  <section id="experience">
+    <div class="container" style="max-width:1000px;">
+      <div class="section-label">Where I've worked</div>
+      <div class="section-title">Internship <span>Experience</span></div>
+      <div class="divider">
+        <div class="divider-line"></div>
+      </div>
+      <div class="timeline">
+
+        <!-- AWS -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot purple"><i class="fa-brands fa-aws"></i></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">AWS Cloud Virtual Intern</div>
+                <div class="timeline-company">Eduskill</div>
+              </div>
+              <span class="timeline-date">OCT - DEC 2025</span>
+            </div>
+            <p class="timeline-desc">Worked on cloud computing services including EC2, S3, and Lambda. Built cloud-based
+              applications and understood deployment and scaling concepts.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag tag-purple">AWS</span>
+              <span class="timeline-tag tag-purple">EC2</span>
+              <span class="timeline-tag tag-purple">S3</span>
+              <span class="timeline-tag tag-purple">Lambda</span>
+            </div>
+            <a href="images/cloud virtual internship-subhom.pdf" target="_blank">
+              <button class="awsbtn">Certificate</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- AI ML -->
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot"><i class="fab fa-google"></i></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">AI / ML Intern</div>
+                <div class="timeline-company">Eduskill</div>
+              </div>
+              <span class="timeline-date">APR - JUN 2025</span>
+            </div>
+            <p class="timeline-desc">Worked on machine learning models, classification, and data pipelines using Google
+              Cloud tools and best practices.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag tag-cyan">TensorFlow</span>
+              <span class="timeline-tag tag-cyan">Python</span>
+              <span class="timeline-tag tag-cyan">GCP</span>
+              <span class="timeline-tag tag-cyan">AutoML</span>
+            </div>
+            <a href="images/GOOGLE AIML CERTIFICATES-subhom.pdf" target="_blank">
+              <button class="mlbtn">Certificate</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Python Fullstack -->
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot green"><i class="fa-brands fa-python"></i></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Python Full Stack Intern</div>
+                <div class="timeline-company">Eduskill</div>
+              </div>
+              <span class="timeline-date">JAN - MAR 2026</span>
+            </div>
+            <p class="timeline-desc">Developed full stack applications using Python, working on backend logic, APIs, and
+              frontend integration.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag tag-red">Python</span>
+              <span class="timeline-tag tag-red">Full Stack</span>
+            </div>
+            <a href="images\Python Fullstack Developer Virtual Internship.pdf" target="_blank"><button
+                class="pythonbtn">Certificate</button></a>
+          </div>
+        </div>
+
+        <!-- Java Fullstack -->
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-dot yellow"><i class="fab fa-java"></i></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Java Full Stack Intern</div>
+                <div class="timeline-company">Eduskill</div>
+              </div>
+              <span class="timeline-date">JUL - SEPT 2025</span>
+            </div>
+            <p class="timeline-desc">Built web applications using Java technologies, including backend development and
+              database integration.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag tag-yellow">Java</span>
+              <span class="timeline-tag tag-yellow">Full Stack</span>
+            </div>
+            <a href="images\Eduskill_Java-subhom.pdf" target="_blank">
+              <button class="javabtn">Certificate</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cybersecurity -->
+        <div class="timeline-item reveal reveal-delay-4">
+          <div class="timeline-dot rose"><i class="fas fa-shield-halved"></i></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Cybersecurity Intern (Palo Alto)</div>
+                <div class="timeline-company">Eduskill</div>
+              </div>
+              <span class="timeline-date">OCT- DEC 2024</span>
+            </div>
+            <p class="timeline-desc">Learned cybersecurity fundamentals, threat detection, and network protection using
+              Palo Alto tools.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag tag-rose">Penetration Testing</span>
+              <span class="timeline-tag tag-rose">Network Security</span>
+              <span class="timeline-tag tag-rose">OWASP</span>
+            </div>
+            <a href="images\CYBER.pdf" target="_blank">
+              <button class="palobtn">Certificate</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blue Prism -->
+        <div class="timeline-item reveal reveal-delay-6">
+          <div class="timeline-dot cyan"><i class="fas fa-robot"></i></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Intelligent Automation Intern (Blue Prism)</div>
+                <div class="timeline-company">Eduskill</div>
+              </div>
+              <span class="timeline-date">JAN - MAR 2024</span>
+            </div>
+            <p class="timeline-desc">Worked on robotic process automation workflows and automation tools using Blue
+              Prism platform.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag tag-cyan">RPA</span>
+              <span class="timeline-tag tag-cyan">Blue Prism</span>
+            </div>
+            <a href="images\SUBHOM   GHOSH  598811.pdf" target="_blank">
+              <button class="blueprismbtn">Certificate</button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <style>
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #405DE6;
+    }
+
+    /* optional: card look improve */
+    .timeline-item {
+      background: #111;
+      border-radius: 12px;
+      padding: 15px;
+      transition: 0.3s;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+
+  <!-- ─── INVOLVEMENT────────────────────────────────────────────── -->
+  <section id="leadership">
+  <div class="container">
+
+    <div class="section-label">How I give back</div>
+
+    <div class="section-title">Involvements &amp; <span>Activities</span></div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="slider-wrapper">
+      <button class="slide-btn left" id="btnLeft" aria-label="Previous">&#10094;</button>
+
+      <div class="track-outer">
+        <div class="leadership-grid" id="slider">
+
+          <!-- Card 1 — Gold: Top 20 -->
+          <div class="leadership-card card-gold">
+            <span class="rank-badge rank-gold">Top 20</span>
+            <div class="lc-icon icon-gold"><i class="fas fa-award"></i></div>
+            <div class="lc-badge">Achievement</div>
+            <div class="lc-org">IDEAJAM</div>
+            <div class="lc-role">JIS IDEAJAM 2024</div>
+          </div>
+
+          <!-- Card 2 — Teal: IHMMC -->
+          <div class="leadership-card card-teal">
+            <div class="lc-icon icon-teal"><i class="fab fa-google"></i></div>
+            <div class="lc-badge">Hackathon</div>
+            <div class="lc-org">IHMMC 2025</div>
+            <div class="lc-role">at AEC &mdash; Participant</div>
+          </div>
+
+          <!-- Card 3 — Rose: Photography -->
+          <div class="leadership-card card-rose">
+            <span class="rank-badge rank-rose">1st Place</span>
+            <div class="lc-icon icon-rose"><i class="fas fa-camera"></i></div>
+            <div class="lc-badge">Competition</div>
+            <div class="lc-org">Photography</div>
+            <div class="lc-role">Photography Competition</div>
+          </div>
+
+          <!-- Card 4 — Sky: SIH -->
+          <div class="leadership-card card-sky">
+            
+            <div class="lc-icon icon-sky"><i class="fas fa-code"></i></div>
+            <div class="lc-badge">Hackathon</div>
+            <div class="lc-org">SIH</div>
+            <div class="lc-role">Smart India Hackathon College Level</div>
+          </div>
+
+          <!-- Card 5 — Lime: Tech Fest -->
+          <div class="leadership-card card-lime">
+            <div class="lc-icon icon-lime"><i class="fas fa-laptop-code"></i></div>
+            <div class="lc-badge">Event</div>
+            <div class="lc-org">Tech Fest</div>
+            <div class="lc-role">Participant</div>
+          </div>
+
+          <!-- Card 6 — Lime: FOSET -->
+          <div class="leadership-card card-violet">
+            <div class="lc-icon icon-violet"><i class="fa-brands fa-google-scholar"></i></div>
+            <div class="lc-badge">Paper Publication</div>
+            <div class="lc-org">FOSET</div>
+            <div class="lc-role">Presenter</div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <button class="slide-btn right" id="btnRight" aria-label="Next">&#10095;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="dots"></div>
+
+  </div>
+</section>
+
+
+<!-- Certifications -->
+<section id="certifications">
+  <div class="container">
+
+    <div class="section-label">What I earned</div>
+
+    <div class="section-title">Certifications </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="slider-wrapper">
+      <button class="slide-btn left" id="btnLeft" aria-label="Previous">&#10094;</button>
+
+      <div class="track-outer">
+        <div class="certifications-grid" id="slider">
+
+          <!-- Card 1 — Gold: NPTEL -->
+          <div class="certifications-card card-gold">
+            <span class="rank-badge rank-gold">91%</span>
+            <div class="lc-icon icon-gold"><i class="fas fa-award"></i></div>
+            <div class="lc-badge">Elite + Gold</div>
+            <div class="lc-org">NPTEL</div>
+            <div class="lc-role">Programming in Java</div>
+          </div>
+
+          <!-- Card 2 — Teal: NPTEL -->
+          <div class="certifications-card card-gold">
+            <span class="rank-badge rank-gold">66%</span>
+            <div class="lc-icon icon-gold"><i class="fas fa-award"></i></div>
+            <div class="lc-badge">Elite</div>
+            <div class="lc-org">NPTEL</div>
+            <div class="lc-role">The Joy of Computing using Python</div>
+          </div>
+
+          <!-- Card 3 — Rose: NPTEL -->
+          <div class="certifications-card card-gold">
+            <span class="rank-badge rank-gold">66%</span>
+            <div class="lc-icon icon-gold"><i class="fas fa-award"></i></div>
+            <div class="lc-badge"></div>
+            <div class="lc-org">NPTEL</div>
+            <div class="lc-role">Problem Solving Through Programming in C</div>
+          </div>
+
+          <!-- Card 4 — Sky: SIH -->
+          <div class="certifications-card card-sky">
+            
+            <div class="lc-icon icon-sky"><i class="fa-brands fa-aws"></i></div>
+            <div class="lc-badge">Training Badge</div>
+            <div class="lc-org">AWS</div>
+            <div class="lc-role">AWS Academy Graduate-Cloud Foundation</div>
+          </div>
+
+          <!-- Card 5 — Lime: Tech Fest -->
+          <div class="certifications-card card-lime">
+            <div class="lc-icon icon-lime"><i class="fas fa-laptop-code"></i></div>
+            <div class="lc-badge">Event</div>
+            <div class="lc-org">Tech Fest</div>
+            <div class="lc-role">Participant</div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="slide-btn right" id="btnRight" aria-label="Next">&#10095;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="dots"></div>
+
+  </div>
+</section>
+
+
+
+
+  <!-- ─── CONTACT ───────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Get in touch</div>
+      <div class="section-title">Let's <span>Connect</span></div>
+      <div class="divider">
+        <div class="divider-line"></div>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <h3>Say hello 👋</h3>
+          <p>Whether you have an exciting project idea, an internship opportunity, or just want to geek out about AI and
+            ML — my inbox is always open.</p>
+          <a href="mailto:subhomghosh616@gmail.com" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">subhomghosh616@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/subhom-ghosh-6034342a8/" target="_blank" class="contact-item">
+            <div class="contact-item-icon"><i class="fab fa-linkedin"></i></div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-val">linkedin.com/in/subhom-ghosh</div>
+            </div>
+          </a>
+          <a href="https://github.com/subhom-ghosh" target="_blank" class="contact-item">
+            <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <div class="contact-item-label">GitHub</div>
+              <div class="contact-item-val">github.com/subhom-ghosh</div>
+            </div>
+          </a>
+          <a href="https://x.com/Subh19gh" target="_blank" class="contact-item">
+            <div class="contact-item-icon"><i class="fa-brands fa-x-twitter"></i></div>
+            <div>
+              <div class="contact-item-label">X</div>
+              <div class="contact-item-val">x.com/Subh19gh</div>
+            </div>
+          </a>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-1" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="What's this about?">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me more..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">
+          © 2025 <span>Subhom Ghosh</span> — Built with 💙 and lots of <span>Python</span>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/subhom-ghosh" target="_blank" class="social-link"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/subhom-ghosh-6034342a8/" target="_blank" class="social-link"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="mailto:subhomghosh616@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+          <a href="https://x.com/Subh19gh" target="_blank" class="social-link"><i
+              class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+</html>

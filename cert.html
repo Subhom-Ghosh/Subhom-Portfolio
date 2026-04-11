@@ -1,0 +1,375 @@
+const CERTS = [
+  {
+    id: 1,
+    title: "Programming in Python",
+    issuer: "NPTEL — IIT",
+    badge: "NPTEL",
+    icon: "fab fa-python",
+    accent: "#4db8ff",
+    score: 66,
+    type: "Online Course",
+    label: "Certificate of Completion",
+    desc: "Completed the NPTEL certification on Programming in Python, covering fundamentals of Python including data types, control flow, OOP concepts, and functional programming patterns.",
+    stats: [
+      { label: "Score", value: "66%", isScore: true },
+      { label: "Platform", value: "NPTEL", isScore: false },
+      { label: "Level", value: "Undergraduate", isScore: false }
+    ]
+  },
+  {
+    id: 2,
+    title: "Programming in Java",
+    issuer: "NPTEL — IIT",
+    badge: "NPTEL",
+    icon: "fab fa-java",
+    accent: "#f4844b",
+    score: 91,
+    type: "Online Course",
+    label: "Certificate of Completion",
+    desc: "Completed the NPTEL certification on Programming in Java with distinction, covering core Java, OOP design patterns, exception handling, collections, and multithreading.",
+    stats: [
+      { label: "Score", value: "91%", isScore: true },
+      { label: "Platform", value: "NPTEL", isScore: false },
+      { label: "Level", value: "Undergraduate", isScore: false }
+    ]
+  },
+  {
+    id: 3,
+    title: "Paper Publication in FOSET",
+    issuer: "FOSET Journal",
+    badge: "Publication",
+    icon: "fas fa-file-alt",
+    accent: "#a78bfa",
+    score: null,
+    type: "Research Paper",
+    label: "Research Publication",
+    desc: "Co-authored and published a research paper in the FOSET (Forum of Scientists, Engineers and Technologists) journal, contributing original findings to the academic community.",
+    stats: [
+      { label: "Type", value: "Peer Reviewed", isScore: false },
+      { label: "Venue", value: "FOSET", isScore: false },
+      { label: "Role", value: "Co-Author", isScore: false }
+    ]
+  },
+  {
+    id: 4,
+    title: "Intro to Machine Learning",
+    issuer: "Kaggle",
+    badge: "Kaggle",
+    icon: "fas fa-robot",
+    accent: "#34d399",
+    score: null,
+    type: "ML Course",
+    label: "Certificate of Completion",
+    desc: "Completed Kaggle's Introduction to Machine Learning course, covering decision trees, model validation, underfitting vs overfitting, random forests, and submission to Kaggle competitions.",
+    stats: [
+      { label: "Platform", value: "Kaggle", isScore: false },
+      { label: "Domain", value: "Machine Learning", isScore: false },
+      { label: "Format", value: "Self-Paced", isScore: false }
+    ]
+  },
+  {
+    id: 5,
+    title: "Web Development Bootcamp",
+    issuer: "Udemy",
+    badge: "Udemy",
+    icon: "fas fa-globe",
+    accent: "#f472b6",
+    score: null,
+    type: "Development",
+    label: "Certificate of Completion",
+    desc: "Completed a comprehensive full-stack web development bootcamp covering HTML, CSS, JavaScript, Node.js, Express, MongoDB, and REST API design principles.",
+    stats: [
+      { label: "Platform", value: "Udemy", isScore: false },
+      { label: "Domain", value: "Full Stack", isScore: false },
+      { label: "Format", value: "Self-Paced", isScore: false }
+    ]
+  }
+];
+
+// Build cards (3 sets for seamless loop)
+const track = document.getElementById('certTrack');
+const dotsWrap = document.getElementById('certDots');
+const dragHint = document.getElementById('dragHint');
+const N = CERTS.length;
+
+function makeCard(cert, cloneGroup) {
+  const card = document.createElement('div');
+  card.className = 'cert-card';
+  card.style.setProperty('--card-accent', cert.accent);
+  card.dataset.id = cert.id;
+  card.dataset.group = cloneGroup;
+  card.innerHTML = `
+    <div class="cert-badge"><i class="${cert.icon}" style="font-size:9px;"></i> ${cert.badge}</div>
+    <div class="cert-icon"><i class="${cert.icon}"></i></div>
+    <div class="cert-title">${cert.title}</div>
+    <div class="cert-issuer">${cert.issuer}</div>
+    ${cert.score !== null ? `<div class="cert-score">${cert.score}%</div>` : '<div class="cert-score" style="font-size:16px;font-family:\'DM Sans\',sans-serif;font-weight:500;letter-spacing:0;">Certified</div>'}
+    <div class="cert-click-hint"><i class="fas fa-eye" style="font-size:8px;"></i> view certificate</div>
+  `;
+  card.addEventListener('click', e => {
+    if (track.classList.contains('dragging')) return;
+    if (Math.abs(dragDelta) > 5) return;
+    openModal(cert);
+  });
+  return card;
+}
+
+// 3 sets: prev + original + next
+[0,1,2].forEach(group => {
+  CERTS.forEach(cert => track.appendChild(makeCard(cert, group)));
+});
+
+// Dots (based on real N)
+CERTS.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'cert-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => {
+    snapToCard(i);
+    resetAutoScroll();
+  });
+  dotsWrap.appendChild(dot);
+});
+
+const dots = Array.from(dotsWrap.children);
+
+// === LAYOUT ===
+const GAP = 22;
+let cardWidth = 240;
+let setWidth = 0;
+
+function recalc() {
+  const c = track.querySelector('.cert-card');
+  if (c) cardWidth = c.getBoundingClientRect().width;
+  setWidth = N * (cardWidth + GAP);
+}
+
+// === SCROLL STATE (starts at set 1) ===
+let x = 0;
+let vel = 0;
+let isDragging = false;
+let startX = 0;
+let startScrollX = 0;
+let dragDelta = 0;
+let rafId = null;
+let autoScrollPaused = false;
+let pauseTimer = null;
+let interacted = false;
+
+// Opposite direction: auto-scroll right (+x)
+const AUTO_SPEED = 0.55;
+
+function setX(val) {
+  x = val;
+  track.style.transform = `translateX(${x}px)`;
+}
+
+function init() {
+  recalc();
+  setX(-setWidth); // start at set 1
+  updateDots();
+  startRaf();
+}
+
+function currentCardIndex() {
+  const norm = ((-x % setWidth) + setWidth) % setWidth;
+  return Math.round(norm / (cardWidth + GAP)) % N;
+}
+
+function updateDots() {
+  const idx = currentCardIndex();
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+function snapToCard(idx) {
+  // Snap to card in set 1, moving opposite direction
+  const targetX = -(setWidth + idx * (cardWidth + GAP));
+  animateTo(targetX);
+}
+
+function animateTo(target) {
+  const start = x;
+  const diff = target - start;
+  const dur = 500;
+  let t0 = null;
+  cancelAnimationFrame(rafId);
+  function step(ts) {
+    if (!t0) t0 = ts;
+    const p = Math.min((ts - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 4);
+    setX(start + diff * ease);
+    wrapLoop();
+    updateDots();
+    if (p < 1) rafId = requestAnimationFrame(step);
+    else { vel = 0; startRaf(); }
+  }
+  rafId = requestAnimationFrame(step);
+}
+
+function wrapLoop() {
+  // Seamless loop: keep x within set 0–1 range
+  if (x > -setWidth * 0.5) { x -= setWidth; track.style.transform = `translateX(${x}px)`; }
+  if (x < -setWidth * 2.5) { x += setWidth; track.style.transform = `translateX(${x}px)`; }
+}
+
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(loop);
+}
+
+function loop() {
+  if (!isDragging) {
+    // Auto scroll: opposite (positive direction means scrolling left visually = going right)
+    if (!autoScrollPaused) {
+      vel += (AUTO_SPEED - vel) * 0.05;
+      // OPPOSITE: add vel (moves right, so cards go left-to-right appearance in reverse)
+      x += vel;
+    } else {
+      vel *= 0.85;
+      if (Math.abs(vel) > 0.5) x += vel;
+      else {
+        // Snap
+        const norm = ((-x % setWidth) + setWidth) % setWidth;
+        const idx = Math.round(norm / (cardWidth + GAP));
+        const targetX = -(setWidth + idx * (cardWidth + GAP));
+        animateTo(targetX);
+        return;
+      }
+    }
+    setX(x);
+    wrapLoop();
+    updateDots();
+  }
+  rafId = requestAnimationFrame(loop);
+}
+
+function pauseAuto(ms) {
+  autoScrollPaused = true;
+  clearTimeout(pauseTimer);
+  pauseTimer = setTimeout(() => { autoScrollPaused = false; }, ms);
+}
+
+function resetAutoScroll() { pauseAuto(2000); }
+
+// Hover
+track.addEventListener('mouseenter', () => pauseAuto(99999));
+track.addEventListener('mouseleave', () => { clearTimeout(pauseTimer); autoScrollPaused = false; });
+
+// === DRAG ===
+function onDragStart(clientX) {
+  isDragging = true;
+  startX = clientX;
+  startScrollX = x;
+  dragDelta = 0;
+  vel = 0;
+  track.classList.add('dragging');
+  cancelAnimationFrame(rafId);
+  if (!interacted) { interacted = true; dragHint.classList.add('hidden'); }
+}
+
+function onDragMove(clientX) {
+  if (!isDragging) return;
+  dragDelta = clientX - startX;
+  // OPPOSITE direction: invert drag
+  setX(startScrollX - dragDelta);
+  wrapLoop();
+  updateDots();
+  vel = -(clientX - (startX + dragDelta - (clientX - startX - dragDelta)));
+}
+
+let lastClientX = 0;
+function onDragMoveVel(clientX) {
+  if (!isDragging) return;
+  vel = -(clientX - lastClientX);
+  lastClientX = clientX;
+  dragDelta = clientX - startX;
+  setX(startScrollX - dragDelta);
+  wrapLoop();
+  updateDots();
+}
+
+function onDragEnd() {
+  if (!isDragging) return;
+  isDragging = false;
+  track.classList.remove('dragging');
+  autoScrollPaused = true;
+  pauseAuto(1800);
+  startRaf();
+}
+
+// Mouse
+track.addEventListener('mousedown', e => { lastClientX = e.clientX; onDragStart(e.clientX); });
+window.addEventListener('mousemove', e => onDragMoveVel(e.clientX));
+window.addEventListener('mouseup', onDragEnd);
+
+// Touch
+track.addEventListener('touchstart', e => { lastClientX = e.touches[0].clientX; onDragStart(e.touches[0].clientX); }, {passive:true});
+track.addEventListener('touchmove', e => onDragMoveVel(e.touches[0].clientX), {passive:true});
+track.addEventListener('touchend', onDragEnd);
+
+// === MODAL ===
+const overlay = document.getElementById('modalOverlay');
+const modalBox = document.getElementById('modalBox');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(cert) {
+  // Set accent
+  modalBox.style.setProperty('--modal-accent', cert.accent);
+
+  document.getElementById('mLabel').textContent = cert.label;
+  document.getElementById('mTitle').textContent = cert.title;
+  document.getElementById('mIssuer').textContent = cert.issuer;
+  document.getElementById('mIcon').style.color = cert.accent;
+  document.getElementById('mIcon').style.background = `color-mix(in srgb, ${cert.accent} 15%, transparent)`;
+  document.getElementById('mIcon').style.borderColor = `color-mix(in srgb, ${cert.accent} 35%, transparent)`;
+  document.getElementById('mIcon').innerHTML = `<i class="${cert.icon}"></i>`;
+  document.getElementById('mDesc').textContent = cert.desc;
+
+  // Stats
+  const statsEl = document.getElementById('mStats');
+  statsEl.innerHTML = '';
+
+  cert.stats.forEach(s => {
+    const st = document.createElement('div');
+    st.className = 'modal-stat';
+    if (s.isScore && cert.score !== null) {
+      const r = 30; const c = 2 * Math.PI * r;
+      const pct = cert.score / 100;
+      st.innerHTML = `
+        <div class="modal-stat-label">${s.label}</div>
+        <div class="score-ring-wrap">
+          <svg class="score-ring-svg" viewBox="0 0 70 70">
+            <circle class="score-ring-bg" cx="35" cy="35" r="${r}"/>
+            <circle class="score-ring-fill" cx="35" cy="35" r="${r}"
+              stroke="${cert.accent}"
+              stroke-dasharray="${c}"
+              stroke-dashoffset="${c - pct * c}"/>
+          </svg>
+          <div class="score-ring-label" style="color:${cert.accent}">${s.value}</div>
+        </div>`;
+    } else {
+      st.innerHTML = `
+        <div class="modal-stat-label">${s.label}</div>
+        <div class="modal-stat-value no-score">${s.value}</div>`;
+    }
+    statsEl.appendChild(st);
+  });
+
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  pauseAuto(99999);
+}
+
+function closeModal() {
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+  clearTimeout(pauseTimer);
+  autoScrollPaused = false;
+}
+
+modalClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Init after layout
+window.addEventListener('load', init);
+window.addEventListener('resize', () => { recalc(); wrapLoop(); });
