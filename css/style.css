@@ -919,6 +919,14 @@
     }
     .slide-btn:active { transform: scale(0.96); }
 
+    /* ─── Track Cursor States ─── */
+    .track-outer {
+      cursor: grab;
+    }
+    .track-outer.grabbing {
+      cursor: grabbing;
+    }
+
     /* ─── Track ─── */
     .track-outer {
       flex: 1;

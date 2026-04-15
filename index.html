@@ -286,6 +286,9 @@
             <span class="tool-tag"> <img
                 src="https://thumbs.dreamstime.com/b/figma-mobile-app-icon-transparent-background-vector-illustration-collaborative-web-application-interface-design-361202754.jpg?w=576"
                 height="20px" alt="Figma"></span>
+                <span class="tool-tag">
+                  <img src="https://cdn.worldvectorlogo.com/logos/fastapi.svg" alt="fast-api" height="20px">
+                </span>
           </div>
         </div>
       </div>
@@ -318,8 +321,14 @@
             <span class="tech-tag">FastAPI</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="project-link"><i class="fas fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="https://github.com/Subhom-Ghosh/NEW-MOODMELODY" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://moodmelody-screen0.onrender.com" 
+   class="project-link" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   onclick="this.innerHTML='<i class=\'fas fa-spinner fa-spin\'></i> Waking up...'; setTimeout(() => this.innerHTML='<i class=\'fas fa-arrow-up-right-from-square\'></i> Demo', 5000)">
+  <i class="fas fa-arrow-up-right-from-square"></i> Demo
+</a>
           </div>
         </div>
 
@@ -611,10 +620,10 @@
     </div>
 
     <div class="slider-wrapper">
-      <button class="slide-btn left" id="btnLeft" aria-label="Previous">&#10094;</button>
+      <button class="slide-btn left" id="certBtnLeft" aria-label="Previous">&#10094;</button>
 
       <div class="track-outer">
-        <div class="certifications-grid" id="slider">
+        <div class="certifications-grid" id="certSlider">
 
           <!-- Card 1 — Gold: NPTEL -->
           <div class="certifications-card card-gold">
@@ -663,11 +672,11 @@
         </div>
       </div>
 
-      <button class="slide-btn right" id="btnRight" aria-label="Next">&#10095;</button>
+      <button class="slide-btn right" id="certBtnRight" aria-label="Next">&#10095;</button>
     </div>
 
     <!-- Dots -->
-    <div class="slider-dots" id="dots"></div>
+    <div class="slider-dots" id="certDots"></div>
 
   </div>
 </section>
